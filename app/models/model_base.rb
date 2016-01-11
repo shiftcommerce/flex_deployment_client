@@ -15,7 +15,7 @@ module FlexDeploymentClient
       def reconfigure
         self.site = FlexDeploymentClient.config.root_url
         self.connection_class = FlexibleConnection
-        self.connection_options.merge! adapter: FlexDeploymentClient.config.adapter || :net_http
+        self.connection_options = connection_options.merge adapter: FlexDeploymentClient.config.adapter || :net_http
         reload_connection_if_required
       end
 
