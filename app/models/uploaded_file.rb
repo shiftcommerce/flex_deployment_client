@@ -6,9 +6,13 @@ module FlexDeploymentClient
     def file=(value)
       if value=~/^file:\/\//
         filename = value.match(/^file:\/\/(.*)$/)[1]
-        MIME::Types.type_for(filename).first.content_type
-        bin_data = File.read_binary(filename)
-        super("data:image/jpg;base64,#{Base64.encode64(bin_data)}")
+        mime_type = MIME::Types.type_for(filename).first.content_type
+        bin_data = File.open(filename, 'rb') {|f| f.read }
+        super("data:#{mime_type};base64,#{Base64.encode64(bin_data)}")
+      elsif value=~/^http(s?):\/\//
+        self.file_url = value
+      else
+        super
       end
     end
 
