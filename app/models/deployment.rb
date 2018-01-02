@@ -8,7 +8,7 @@ module FlexDeploymentClient
       end
     end
 
-    belongs_to :pipeline, class_name: "::FlexDeploymentClient::Pipeline"
+    has_one  :pipeline, class_name: "::FlexDeploymentClient::Pipeline"
     has_many :webhooks, class_name: "::FlexDeploymentClient::Webhook"
 
   end
