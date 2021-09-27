@@ -16,7 +16,8 @@ module FlexDeploymentClient
     end
 
     def self.upload(attributes)
-      parser.parse(self, connection.run(:post, table_name, {data: {type: :uploaded_files, attributes: attributes}}, custom_headers.merge({"Content-Type": "application/vnd.api+json"}))).first
+      response = connection.run(:post, table_name, body: {data: {type: :uploaded_files, attributes: attributes}}, headers: custom_headers.merge({"Content-Type": "application/vnd.api+json"}))
+      parser.parse(self, response).first
     end
   end
 end
