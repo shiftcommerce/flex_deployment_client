@@ -3,6 +3,8 @@ require "flex_deployment_client/middleware/uploaded_file_middleware"
 module FlexDeploymentClient
   class UploadedFile < ModelBase
     def file=(value)
+      binding.pry
+
       if /^file:\/\//.match?(value)
         filename = value.match(/^file:\/\/(.*)$/)[1]
         mime_type = MIME::Types.type_for(filename).first.content_type
@@ -16,6 +18,8 @@ module FlexDeploymentClient
     end
 
     def self.upload(attributes)
+      binding.pry
+
       response = connection.run(:post, table_name, body: {data: {type: :uploaded_files, attributes: attributes}}, headers: custom_headers.merge({"Content-Type": "application/vnd.api+json"}))
       parser.parse(self, response).first
     end
