@@ -8,7 +8,7 @@ module FlexDeploymentClient
         builder.request :json
         builder.request :multipart
         builder.use FlexibleJsonRequest
-        builder.use JsonApiClient::Middleware::Status
+        builder.use JsonApiClient::Middleware::Status, {}
         builder.use JsonApiClient::Middleware::ParseJson
         builder.adapter(*adapter_options)
       end
