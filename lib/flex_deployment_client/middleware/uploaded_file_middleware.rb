@@ -18,6 +18,5 @@ module FlexDeploymentClient
         json.key?("data") && json["data"].key?("attributes") && json["data"]["attributes"].key?("file")
       end
     end
-
   end
 end

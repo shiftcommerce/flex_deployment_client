@@ -3,7 +3,9 @@ module FlexDeploymentClient
   class ModelBase < JsonApiClient::Resource
     self.site = FlexDeploymentClient.config.root_url
     self.connection_class = FlexibleConnection
-    self.connection_options.merge! adapter: FlexDeploymentClient.config.adapter || :net_http
+
+    connection_options[:adapter] = FlexDeploymentClient.config.adapter || :net_http
+
     class << self
       def reconfigure_all
         subclasses.each do |sub|

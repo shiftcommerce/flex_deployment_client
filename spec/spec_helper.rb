@@ -1,2 +1,2 @@
-$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
-require 'flex_deployment_client'
+$LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
+require "flex_deployment_client"

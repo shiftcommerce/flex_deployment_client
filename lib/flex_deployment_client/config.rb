@@ -10,7 +10,5 @@ module FlexDeploymentClient
     def reconfigure_all!
       FlexDeploymentClient::ModelBase.reconfigure_all if FlexDeploymentClient.const_defined? "ModelBase"
     end
-
   end
-
 end
