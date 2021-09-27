@@ -1,7 +1,6 @@
 require "flex_deployment_client/version"
 require "json_api_client"
 module FlexDeploymentClient
-
   autoload :Pipeline, File.expand_path("../app/models/pipeline.rb", __dir__)
   autoload :UploadedFile, File.expand_path("../app/models/uploaded_file.rb", __dir__)
   autoload :Deployment, File.expand_path("../app/models/deployment.rb", __dir__)
@@ -11,6 +10,7 @@ module FlexDeploymentClient
   def self.gem_root
     File.expand_path("../", __dir__)
   end
+
   def self.config
     FlexDeploymentClient::Config.instance.tap do |config|
       yield config if block_given?

@@ -10,11 +10,10 @@ module FlexDeploymentClient
         builder.use FlexibleJsonRequest
         builder.use JsonApiClient::Middleware::Status
         builder.use JsonApiClient::Middleware::ParseJson
-        builder.adapter *adapter_options
+        builder.adapter(*adapter_options)
       end
       faraday.basic_auth(FlexDeploymentClient.config.user, FlexDeploymentClient.config.password)
       yield(self) if block_given?
     end
-
   end
 end
