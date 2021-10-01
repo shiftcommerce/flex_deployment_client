@@ -7,6 +7,7 @@ module FlexDeploymentClient
   autoload :Webhook, File.expand_path("../app/models/webhook.rb", __dir__)
   autoload :ModelBase, File.expand_path("../app/models/model_base.rb", __dir__)
   autoload :Config, File.expand_path("./flex_deployment_client/config.rb", __dir__)
+
   def self.gem_root
     File.expand_path("../", __dir__)
   end

@@ -1,5 +1,5 @@
 require "flex_deployment_client/middleware/uploaded_file_middleware"
-require "flex_deployment_client/requestor/uploaded_file_requestor"
+
 module FlexDeploymentClient
   class UploadedFile < ModelBase
     def file=(value)
