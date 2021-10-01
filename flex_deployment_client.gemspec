@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary = "A client for the flex deployment platform"
   spec.description = "A client for the flex deployment platform"
   spec.homepage = "http://github.com/shiftcommerce/flex_deployment_client"
-  spec.license = "ISC"
+  spec.license = "Unlicenced"
 
   spec.files = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir = "exe"
